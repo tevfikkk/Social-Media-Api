@@ -1,14 +1,17 @@
-import bodyParser from "body-parser"
-import express, { Application } from "express"
-import helmet from "helmet"
+import bodyParser from 'body-parser'
+import express, { Application } from 'express'
+import helmet from 'helmet'
 
-import { info } from "./utils/logger";
-
-import { errorHandler, requestLogger, unknownEndpoint } from "./utils/middleware";
+import { info } from './utils/logger'
+import {
+  errorHandler,
+  requestLogger,
+  unknownEndpoint
+} from './utils/middleware'
 
 const app: Application = express()
 
-info("Starting up server...")
+info('Starting up server...')
 
 // Middleware for protecting the server from attacks
 app.use(helmet())
@@ -20,7 +23,7 @@ app.use(requestLogger)
 
 // Routes
 app.get('/api/hello', (req, res) => {
-    res.send({ express: 'Hello From Express' })
+  res.send({ express: 'Hello From Express' })
 })
 
 // Error handling middlewares

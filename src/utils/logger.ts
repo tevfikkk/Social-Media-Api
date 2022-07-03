@@ -1,7 +1,7 @@
 export const info = (...params: any[]) => {
-    console.log(...params)
+  console.log(...params)
 }
 
 export const errorMessage = (...params: any[]) => {
-    console.error(...params)
+  console.error(...params)
 }
