@@ -4,6 +4,7 @@ import express, { Application } from 'express'
 import helmet from 'helmet'
 
 import { authRouter } from './controllers/auth'
+import { postRouter } from './controllers/post'
 import { info } from './utils/logger'
 import {
   errorHandler,
@@ -28,6 +29,7 @@ app.use(cookieParser())
 
 // Routes
 app.use('/api/auth', authRouter)
+app.use('/api/posts', postRouter)
 
 // Error handling middlewares
 app.use(errorHandler)
