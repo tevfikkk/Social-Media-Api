@@ -138,9 +138,6 @@ authRouter.post('/signin', async (req: Request, res: Response) => {
       })
     )
 
-    /* console.log(req.cookies)
-    console.log(req.cookies.token) */
-
     res.status(200).json(user)
   } else {
     res.status(401).json({
