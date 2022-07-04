@@ -1,7 +1,9 @@
 import bodyParser from 'body-parser'
+import cookieParser from 'cookie-parser'
 import express, { Application } from 'express'
 import helmet from 'helmet'
 
+import { authRouter } from './routes/auth'
 import { info } from './utils/logger'
 import {
   errorHandler,
@@ -21,10 +23,11 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(requestLogger)
 
+// Cookie parser
+app.use(cookieParser())
+
 // Routes
-app.get('/api/hello', (req, res) => {
-  res.send({ express: 'Hello From Express' })
-})
+app.use('/api/auth', authRouter)
 
 // Error handling middlewares
 app.use(errorHandler)
