@@ -112,6 +112,14 @@ authRouter.post('/signin', async (req: Request, res: Response) => {
       email
     }
   })
+
+  // If user not found
+  if (!user) {
+    return res.status(400).json({
+      error: 'User not found'
+    })
+  }
+
   if (user && bcrypt.compareSync(password, user.password)) {
     // Generate token for the user
     const token = jwt.sign(
