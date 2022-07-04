@@ -3,7 +3,7 @@ import cookieParser from 'cookie-parser'
 import express, { Application } from 'express'
 import helmet from 'helmet'
 
-import { authRouter } from './routes/auth'
+import { authRouter } from './controllers/auth'
 import { info } from './utils/logger'
 import {
   errorHandler,
