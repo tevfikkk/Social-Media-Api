@@ -169,13 +169,12 @@ commentRouter.delete('/:id', async (req: Request, res: Response) => {
   }
 
   // Delete the comment
-  const deletedComment = await prisma.comment
+  await prisma.comment
     .delete({
       where: {
         id: req.params.id // Comment id
       }
     })
+    .then(() => res.status(200).json({ message: 'Comment deleted' }))
     .catch((err: Error) => res.status(500).json({ error: err }))
-
-  res.status(200).json(deletedComment)
 })

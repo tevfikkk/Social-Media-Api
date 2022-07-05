@@ -28,7 +28,6 @@ model Post {
   userId    String    @map("author")
   createdAt DateTime  @default(now())
   updatedAt DateTime  @default(now())
-  like      Like[]
   comments  Comment[]
 }
 
@@ -37,14 +36,4 @@ model Comment {
   post    Post   @relation(fields: [postId], references: [id])
   postId  String @db.ObjectId
   comment String
-  Like    Like[]
-}
-
-model Like {
-  id        String  @id @default(auto()) @map("_id") @db.ObjectId
-  like      Boolean @default(false)
-  post      Post    @relation(fields: [postId], references: [id])
-  postId    String  @db.ObjectId
-  comment   Comment @relation(fields: [commentId], references: [id])
-  commentId String  @db.ObjectId
 }
