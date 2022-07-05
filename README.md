@@ -6,7 +6,7 @@
     <li>Authentication</li>
     <li>User creation</li>
     <li>User post and comment</li>
-    <li>JWT</li>
+    <li>Cookie and JWT</li>
   </ul>
 
 ## How to run
